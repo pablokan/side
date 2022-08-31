@@ -1,5 +1,21 @@
 from PySide6.QtWidgets import QApplication, QMainWindow, QLabel, QVBoxLayout, QWidget, QLineEdit, QPushButton
 
+class KInput(QLineEdit):
+    def __init__(self, color):
+        super().__init__()
+        self.setStyleSheet(f"background-color:{color}")
+
+class KText(QLabel):
+    def __init__(self, texto, color):
+        super().__init__(texto)
+        self.setStyleSheet(f"background-color:{color}")
+
+class KButton(QPushButton):
+    def __init__(self, texto, color):
+        super().__init__(texto)
+        self.setStyleSheet(f"background-color:{color}")
+
+
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
@@ -12,13 +28,14 @@ class MainWindow(QMainWindow):
         layout = QVBoxLayout()
 
         self.n1 = instance(layout, QLineEdit())
-        self.n2 = instance(layout, QLineEdit())
-        boton = instance(layout, QPushButton("Sumar"))
-        self.t = instance(layout, QLabel("Resultado"))
+        self.n2 = instance(layout, KInput("teal"))
+        boton = instance(layout, KButton("Sumar", "magenta"))
+        self.t = instance(layout, KText("Resultado", "red"))
 
         boton.clicked.connect(self.sumar)
    
         centralWidget = QWidget()
+        centralWidget.setStyleSheet(f"background-color: yellow")
         centralWidget.setLayout(layout)
         self.setCentralWidget(centralWidget)
 

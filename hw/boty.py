@@ -3,31 +3,24 @@ from PySide6.QtWidgets import QApplication, QMainWindow, QLabel, QVBoxLayout, QW
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
-
         def instance(lay, clase):
             v = clase
             lay.addWidget(v)
             return v
 
         layout = QVBoxLayout()
-
-        self.n1 = instance(layout, QLineEdit())
-        self.n2 = instance(layout, QLineEdit())
-        boton = instance(layout, QPushButton("Sumar"))
-        self.t = instance(layout, QLabel("Resultado"))
-
-        boton.clicked.connect(self.sumar)
-   
+        self.t = instance(layout, QLabel('label'))
+        self.n = instance(layout, QLineEdit())
+        boton = instance(layout, QPushButton('label'))
+        boton.clicked.connect(self.function_name)
         centralWidget = QWidget()
         centralWidget.setLayout(layout)
         self.setCentralWidget(centralWidget)
 
-    def sumar(self):
-        n1 = int(self.n1.text())
-        n2 = int(self.n2.text())
-        self.t.setText(f"Resultado = {str(n1+n2)}")
+    def function_name(self):
+        self.t.setText('xxxxxx')
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     app = QApplication()
     window = MainWindow()
     window.show()
