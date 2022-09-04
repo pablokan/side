@@ -12,6 +12,14 @@ class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
 
+		self.left = 0
+		self.top = 0
+		self.width = 300
+		self.height = 200
+
+		self.setWindowTitle(self.title)
+		self.setGeometry(self.left, self.top, self.width, self.height)
+
         # layout vertical
         layout = QVBoxLayout() # QHBoxLayout (para horizontal)
 
