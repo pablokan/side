@@ -1,5 +1,6 @@
 from PySide6.QtWidgets import QApplication, QMainWindow, QLabel, QVBoxLayout, QWidget, QLineEdit, QPushButton, QTableWidget, QTableWidgetItem, QFormLayout
 from PySide6.QtCore import Qt
+from PySide6.QtGui import QFont
 
 a = open("hw/crud02.csv")
 filas = a.read().split("\n")
@@ -32,6 +33,8 @@ class MainWindow(QMainWindow):
             return v
 
         table = self.table = Table(data)
+        table.setStyleSheet("background-color: teal")
+        table.setFont(QFont("NovaMono", 13))
         table.setSortingEnabled(True)
         self.f = formulario = QFormLayout()
 
