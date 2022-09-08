@@ -20,13 +20,13 @@ class MainWindow(QMainWindow):
             for y in range(3):
                 i += 1
                 b = QPushButton(str(i))
-                b.clicked.connect(lambda state=None, x=i: self.numero(x))
+                b.clicked.connect(self.numero)
                 grilla.addWidget(b, x, y)
         
         colu = 0
         for cero in ['0', '00', '000']:
             b = QPushButton(str(cero))
-            b.clicked.connect(lambda state=None, x=cero: self.numero(x))
+            b.clicked.connect(self.numero)
             grilla.addWidget(b, x+1, colu)
             colu += 1
         
@@ -34,7 +34,7 @@ class MainWindow(QMainWindow):
         for signo in ['+', '-', '*', '/']:
             b = QPushButton(signo)
             signosLay.addWidget(b)
-            b.clicked.connect(lambda state=None, x=signo: self.numero(x))
+            b.clicked.connect(self.numero)
 
         mainLayout.addLayout(signosLay)
         resu = QPushButton("=")
@@ -45,9 +45,9 @@ class MainWindow(QMainWindow):
         centralWidget.setLayout(mainLayout)
         self.setCentralWidget(centralWidget)
 
-    def numero(self, n):
-        qq = self.t.text() + str(n)
-        self.t.setText(qq)
+
+    def numero(self):
+        self.t.setText(self.t.text() + self.sender().text())
 
     def resultado(self):
         self.r.setText(str(eval(self.t.text())))
