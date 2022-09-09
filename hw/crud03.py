@@ -1,17 +1,14 @@
 from PySide6.QtWidgets import QApplication, QMainWindow, QLabel, QVBoxLayout, QWidget, QLineEdit, QPushButton, QTableWidget, QTableWidgetItem, QFormLayout
 from PySide6.QtCore import Qt
 from PySide6.QtGui import QFont
-
-a = open("crud02.csv")
-filas = a.read().split("\n")
-data = [f.split(";") for f in filas]
-header = data.pop(0)
+from clase_sqlite import Database
 
 class Table(QTableWidget):
     def __init__(self, data):
         super().__init__()
         self.setRowCount(len(data))
         self.setColumnCount(len(data[0]))
+        header = ["id", "Nombre", "Fecha de Nacimiento", "Comisión", " Nota"]
         self.setHorizontalHeaderLabels(header)
         for x in range(len(data)):
             for y in range(len(data[x])):
@@ -32,6 +29,8 @@ class MainWindow(QMainWindow):
             lay.addWidget(v)
             return v
 
+        alumnos = Database("Alumno")
+        data = alumnos.select()
         table = self.table = Table(data)
         table.setStyleSheet("background-color: teal")
         table.setFont(QFont("NovaMono", 13))
@@ -77,3 +76,4 @@ if __name__ == '__main__':
     window.setGeometry(1000, 100, 700, 500)
     window.show()
     app.exec()
+
