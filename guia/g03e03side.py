@@ -3,36 +3,67 @@
 
 from tkinter import mainloop
 from PySide6.QtWidgets import (
-    QApplication, QMainWindow, QLabel, QVBoxLayout, QHBoxLayout, QWidget, QLineEdit, QPushButton, QRadioButton, QGridLayout, QButtonGroup)
+    QApplication, QMainWindow, QVBoxLayout, QWidget, QLineEdit, QPushButton, QRadioButton, QGridLayout, QButtonGroup, QMessageBox)
 
-class MainWindow(QMainWindow):
+class Grilla(QWidget):
     def __init__(self):
         super().__init__()
-
         
         cuadricula = QGridLayout()
 
         for x in range (8):
-            cuadricula.addWidget(QLineEdit(), x, 0)
-            bg = QButtonGroup()
+            cuadricula.addWidget(QLineEdit(f"nombre{x}"), x, 0)
+            bg = QButtonGroup(self)
             rbF = QRadioButton("Femenino", self)
-            rbF.toggled.connect(self.updateLabel)
+            rbF.setChecked(True)
+            #rbF.toggled.connect(self.updateLabel)
             rbM = QRadioButton("Masculino", self)
-            rbM.toggled.connect(self.updateLabel)
+            #rbM.toggled.connect(self.updateLabel)
             cuadricula.addWidget(rbF, x, 1)
             cuadricula.addWidget(rbM, x, 2)
             bg.addButton(rbF)
             bg.addButton(rbM)
 
+        self.setLayout(cuadricula)
+
+    def updateLabel(self):
+        for ctl in self.findChildren(QRadioButton):
+            print(ctl.text())    
+        
+
+
+
+class MainWindow(QMainWindow):
+    def __init__(self):
+        super().__init__()
+
         mainLayout = QVBoxLayout()
-        mainLayout.addLayout(cuadricula)
+        grilla = Grilla()
+        mainLayout.addWidget(grilla)
+        
+        b = QPushButton()
+        mainLayout.addWidget(b)
+        b.clicked.connect(self.procesar)
         centralWidget = QWidget()
         centralWidget.setLayout(mainLayout)
         self.setCentralWidget(centralWidget)
 
-    def updateLabel(self):
-        pass
-    
+    def procesar(self):
+        nombres = self.findChildren(QLineEdit)
+        sexos = self.findChildren(QButtonGroup)
+        chicas = ""
+        for nombre, sexo in zip(nombres, sexos):
+            if sexo.checkedId() == -2:
+                print(nombre.text())
+                chicas += nombre.text() + "\n"
+
+        dlg = QMessageBox(self)
+        dlg.setWindowTitle("Mujeres")
+        dlg.setText(chicas)
+        button = dlg.exec()
+
+
+
 if __name__ == '__main__':
     app = QApplication()
     window = MainWindow()
