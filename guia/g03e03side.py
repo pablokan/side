@@ -1,24 +1,33 @@
-#1: Almacenar en dos listas paralelas, nombres y sexos de 8 personas. 
-#2: Recorrerlas y mostrar los nombres de las mujeres. 
+# 1: Almacenar en dos listas paralelas, nombres y sexos de 8 personas.
+# 2: Recorrerlas y mostrar los nombres de las mujeres.
 
 from tkinter import mainloop
 from PySide6.QtWidgets import (
-    QApplication, QMainWindow, QVBoxLayout, QWidget, QLineEdit, QPushButton, QRadioButton, QGridLayout, QButtonGroup, QMessageBox)
+    QApplication,
+    QMainWindow,
+    QVBoxLayout,
+    QWidget,
+    QLineEdit,
+    QPushButton,
+    QRadioButton,
+    QGridLayout,
+    QButtonGroup,
+    QMessageBox,
+)
+
 
 class Grilla(QWidget):
     def __init__(self):
         super().__init__()
-        
+
         cuadricula = QGridLayout()
 
-        for x in range (8):
+        for x in range(8):
             cuadricula.addWidget(QLineEdit(f"nombre{x}"), x, 0)
             bg = QButtonGroup(self)
             rbF = QRadioButton("Femenino", self)
             rbF.setChecked(True)
-            #rbF.toggled.connect(self.updateLabel)
             rbM = QRadioButton("Masculino", self)
-            #rbM.toggled.connect(self.updateLabel)
             cuadricula.addWidget(rbF, x, 1)
             cuadricula.addWidget(rbM, x, 2)
             bg.addButton(rbF)
@@ -28,9 +37,7 @@ class Grilla(QWidget):
 
     def updateLabel(self):
         for ctl in self.findChildren(QRadioButton):
-            print(ctl.text())    
-        
-
+            print(ctl.text())
 
 
 class MainWindow(QMainWindow):
@@ -40,7 +47,7 @@ class MainWindow(QMainWindow):
         mainLayout = QVBoxLayout()
         grilla = Grilla()
         mainLayout.addWidget(grilla)
-        
+
         b = QPushButton()
         mainLayout.addWidget(b)
         b.clicked.connect(self.procesar)
@@ -63,8 +70,7 @@ class MainWindow(QMainWindow):
         button = dlg.exec()
 
 
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     app = QApplication()
     window = MainWindow()
     window.show()

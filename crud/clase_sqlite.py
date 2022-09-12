@@ -65,3 +65,5 @@ if __name__ == '__main__':
     alumnos.delete(id)
     alumnos.update(2, "Quico", "1987-11-11")
     alumnos.select()
+
+
