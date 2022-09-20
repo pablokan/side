@@ -13,7 +13,7 @@ class MainWindow(QMainWindow):
         layout = QHBoxLayout()
 
         self.lista = []
-        for self.x in range(5):
+        for _ in range(5):
             self.n = instance(layout, QLineEdit("0"))
             self.lista.append(self.n)
         
