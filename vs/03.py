@@ -1,10 +1,6 @@
-import sys
 from PySide6.QtWidgets import QApplication, QMainWindow
 
-app = QApplication(sys.argv)
-
+app = QApplication()
 window = QMainWindow()
 window.show()
-
-# Start the event loop.
-app.exec_()
+app.exec()
