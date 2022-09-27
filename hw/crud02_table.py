@@ -2,7 +2,7 @@ from PySide6.QtWidgets import QApplication, QMainWindow, QLabel, QVBoxLayout, QW
 from PySide6.QtCore import Qt
 from PySide6.QtGui import QFont
 
-a = open("crud02.csv")
+a = open("hw/crud02.csv")
 filas = a.read().split("\n")
 data = [f.split(";") for f in filas]
 header = data.pop(0)

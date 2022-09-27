@@ -1,13 +1,13 @@
-from PySide6.QtWidgets import QApplication, QMainWindow, QLabel, QVBoxLayout, QWidget, QLineEdit, QPushButton
+from PySide6.QtWidgets import QApplication, QMainWindow, QLabel, QVBoxLayout, QWidget, QLineEdit, QPushButton, QHBoxLayout, QListWidget
 
 class Window(QWidget):
-    def __init__(self, dato):
+    def __init__(self):
         super().__init__()
-        layout = QVBoxLayout()
-        self.label = QLabel(dato)
-        layout.addWidget(self.label)
-        self.edito = QLineEdit()
-        layout.addWidget(self.edito)
+        layout = QHBoxLayout()
+        self.nombres = QListWidget()
+        layout.addWidget(self.nombres)
+        self.sueldos = QListWidget()
+        layout.addWidget(self.sueldos)
         self.setLayout(layout)
 
     def setDato(self, dato):
@@ -16,7 +16,7 @@ class Window(QWidget):
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
-        self.otra = Window("desde main")
+        self.otra = Window()
         layout = QVBoxLayout()
         self.texto = QLabel('label')
         layout.addWidget(self.texto)
