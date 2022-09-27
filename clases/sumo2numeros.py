@@ -6,7 +6,9 @@ from PySide6.QtWidgets import (
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
-
+        # tamaño
+        self.setGeometry(2000, 100, 200, 400)
+        
         self.setWindowTitle("Sumar dos números") # ya que está le pongo título a la ventana
         layout = QVBoxLayout() # instancio el vertical box
         self.texto = QLabel('Ingrese dos números:') # instancio un texto
