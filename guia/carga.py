@@ -5,22 +5,18 @@ class MainWindow(QMainWindow):
         super().__init__()
 
         layout = QVBoxLayout()
-        self.texto = QLabel('Sumar dos números')
+        self.texto = QLabel('label')
         layout.addWidget(self.texto)
-        self.n1 = QLineEdit()
-        layout.addWidget(self.n1)
-        self.n2 = QLineEdit()
-        layout.addWidget(self.n2)
-        boton = QPushButton('Sumar')
+        self.entrada = QLineEdit()
+        layout.addWidget(self.entrada)
+        boton = QPushButton('label')
         layout.addWidget(boton)
-        boton.clicked.connect(self.suma)
-        
+        boton.clicked.connect(self.function_name)
         centralWidget = QWidget()
         centralWidget.setLayout(layout)
         self.setCentralWidget(centralWidget)
 
-    def suma(self):
-        
+    def function_name(self):
         self.texto.setText(f'Hola {self.entrada.text()}')
 
 if __name__ == '__main__':

@@ -1,4 +1,4 @@
-# (g03e11) Cargar en listas los nombres y fechas de nacimiento de varias personas, 
+# Cargar en listas los nombres y fechas de nacimiento de varias personas, 
 # luego recorrerlo y mostrar los nombres de los mayores de edad.
 from PySide6.QtWidgets import QApplication, QMainWindow, QListWidget, QLabel, QVBoxLayout, QWidget, QLineEdit, QPushButton, QFormLayout
 

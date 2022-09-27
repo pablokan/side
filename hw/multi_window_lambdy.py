@@ -15,7 +15,7 @@ class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
         self.window1 = AnotherWindow()
-        self.window1.hide()
+        self.window1.show()
         l = QVBoxLayout()
         button1 = QPushButton("Push for Window")
         l.addWidget(button1)
