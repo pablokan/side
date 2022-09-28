@@ -6,7 +6,8 @@ from PySide6.QtCore import Qt
 
 class Style():
     def __init__(self, text="", fontF="Arial", fontS=15, fore="black", 
-                back="white", horizontalAlign="hC", verticalAlign="vC"):
+                back="white", horizontalAlign="hC", verticalAlign="vC",
+                moreStyle=""):
         align = {
             "aL": Qt.AlignLeft,
             "hC": Qt.AlignCenter,
@@ -16,20 +17,31 @@ class Style():
             "aB": Qt.AlignBottom
             }
         self.setText(str(text))
-        self.setStyleSheet(f'background-color: {back}; color: {fore};')
-        self.setAlignment(align[horizontalAlign] | align[verticalAlign])
+        style = f"""
+            background-color: {back}; 
+            color: {fore};
+            padding: 5; 
+            
+        """
+        self.setStyleSheet(style + moreStyle)
+        if not isinstance(self, QPushButton):
+            self.setAlignment(align[horizontalAlign] | align[verticalAlign])
         self.setFont(QFont(fontF, fontS))
 
-
+class Button(QPushButton, Style):
+    def __init__(self, text="", fontF="Arial", fontS=15, fore="black", 
+                back="white", moreStyle=""):
+        QPushButton.__init__(self)
+        Style.__init__(self, text, fontF, fontS, fore, 
+                back, moreStyle)
+    
 class Input(QLineEdit, Style):
     def __init__(self, text="", fontF="Arial", fontS=15, fore="black", 
-                back="white", horizontalAlign="hC", verticalAlign="vC"):
+                back="white", horizontalAlign="hC", verticalAlign="vC", moreStyle=""):
         QLineEdit.__init__(self)
         Style.__init__(self, text, fontF, fontS, fore, 
-                back, horizontalAlign, verticalAlign)
+                back, horizontalAlign, verticalAlign, moreStyle)
         
-           
-
 class Text(QLabel, Style):
     """
     alignment = {
@@ -42,14 +54,11 @@ class Text(QLabel, Style):
             }
     """
     def __init__(self, text="", fontF="Arial", fontS=15, fore="black", 
-                back="white", horizontalAlign="hC", verticalAlign="vC"):
+                back="white", horizontalAlign="hC", verticalAlign="vC", moreStyle=""):
         QLabel.__init__(self)
         Style.__init__(self, text, fontF, fontS, fore, 
-                back, horizontalAlign, verticalAlign)
+                back, horizontalAlign, verticalAlign, moreStyle)
         
-        
-
-
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
@@ -66,12 +75,14 @@ class MainWindow(QMainWindow):
             t = f"texto #{c}"
             layout.addWidget(Text(t, "NovaMono", 20, "cyan", c, a[0], a[1]))
 
+        b = Button("Botón", "Victor Mono", 30, "red", "orange")
         layout.addWidget(Text("pablo", "Victor Mono", 10, "sky blue", "blue", "aR", "aT"))
-        layout.addWidget(Text("kan", "Victor Mono", 30, "red", "orange", "aL", "aB"))
+        layout.addWidget(Text("kan", "Victor Mono", 30, "red", "orange", "aL", "aB", "border: 3px solid"))
+        layout.addWidget(b)
         layout.addWidget(Text("Manchester City"))
         layout.addWidget(Input(fore="red", back="yellow"))
         layout.addWidget(Text("Liverpool", horizontalAlign="aR"))
-        layout.addWidget(Text("lo mismo"))
+        layout.addWidget(Text("lo mismo", moreStyle='border: 5px solid;'))
         layout.addWidget(Input("lo mismo"))
 
         centralWidget = QWidget()
@@ -84,3 +95,4 @@ if __name__ == '__main__':
     window.resize(300, 400)
     window.show()
     app.exec()
+

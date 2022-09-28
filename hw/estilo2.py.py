@@ -6,10 +6,10 @@ from PySide6.QtGui import QFont
 from PySide6.QtCore import Qt
 
 
-class Style():
+class Style(QWidget):
     def __init__(self, Class, text="", fontF="Arial", fontS=15, fore="black", 
                 back="white", horizontalAlign="hC", verticalAlign="vC"):
-        Class.__init__(Class(), text="", fontF="Arial", fontS=15, fore="black", 
+        o = Class.__init__(Class(), text="", fontF="Arial", fontS=15, fore="black", 
                 back="white", horizontalAlign="hC", verticalAlign="vC")
         align = {
             "aL": Qt.AlignLeft,
