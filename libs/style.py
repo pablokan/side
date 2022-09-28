@@ -1,4 +1,3 @@
-from turtle import color
 from PySide6.QtWidgets import QApplication, QMainWindow, QLabel, QVBoxLayout, QWidget, QLineEdit, QPushButton
 from PySide6.QtGui import QFont
 from PySide6.QtCore import Qt
@@ -32,15 +31,13 @@ class Button(QPushButton, Style):
     def __init__(self, text="", fontF="Arial", fontS=15, fore="black", 
                 back="white", moreStyle=""):
         QPushButton.__init__(self)
-        Style.__init__(self, text, fontF, fontS, fore, 
-                back, moreStyle)
+        Style.__init__(self, text, fontF, fontS, fore, back, moreStyle)
     
 class Input(QLineEdit, Style):
     def __init__(self, text="", fontF="Arial", fontS=15, fore="black", 
                 back="white", horizontalAlign="hC", verticalAlign="vC", moreStyle=""):
         QLineEdit.__init__(self)
-        Style.__init__(self, text, fontF, fontS, fore, 
-                back, horizontalAlign, verticalAlign, moreStyle)
+        Style.__init__(self, text, fontF, fontS, fore, back, horizontalAlign, verticalAlign, moreStyle)
         
 class Text(QLabel, Style):
     """
@@ -56,8 +53,7 @@ class Text(QLabel, Style):
     def __init__(self, text="", fontF="Arial", fontS=15, fore="black", 
                 back="white", horizontalAlign="hC", verticalAlign="vC", moreStyle=""):
         QLabel.__init__(self)
-        Style.__init__(self, text, fontF, fontS, fore, 
-                back, horizontalAlign, verticalAlign, moreStyle)
+        Style.__init__(self, text, fontF, fontS, fore, back, horizontalAlign, verticalAlign, moreStyle)
         
 class MainWindow(QMainWindow):
     def __init__(self):
