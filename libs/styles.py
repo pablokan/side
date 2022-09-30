@@ -7,7 +7,7 @@ from PySide6.QtCore import Qt
 
 @dataclass
 class Widget:
-    text: str = ""
+    string: str = ""
     fontF: str = "Arial"
     fontS: int = 15
     foreg: str = "black"
@@ -25,7 +25,7 @@ class Widget:
             "vC": Qt.AlignVCenter,
             "aB": Qt.AlignBottom
             }
-        self.setText(str(self.text))
+        self.setText(str(self.string))
         style = f"""
             background-color: {self.backg}; 
             color: {self.foreg};
