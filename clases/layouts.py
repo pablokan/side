@@ -2,7 +2,7 @@ import os, sys
 sys.path.append(os.path.abspath('libs'))
 print(sys.path)
 from PySide6.QtWidgets import QApplication, QWidget, QMainWindow, QVBoxLayout, QFormLayout, QHBoxLayout
-from styles import Text, Input, Button
+from styles0 import Text, Input, Button
 
 class MainWindow(QMainWindow):
     def __init__(self):
