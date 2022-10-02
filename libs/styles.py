@@ -1,6 +1,15 @@
 from dataclasses import dataclass
 
-from PySide6.QtWidgets import QApplication, QMainWindow, QLabel, QVBoxLayout, QWidget, QLineEdit, QPushButton
+from PySide6.QtWidgets import (
+    QApplication, 
+    QWidget, 
+    QMainWindow, 
+    QVBoxLayout,
+    QLabel, 
+    QLineEdit, 
+    QPushButton
+    )
+
 from PySide6.QtGui import QFont
 from PySide6.QtCore import Qt
 
@@ -11,9 +20,11 @@ class Widget:
     fontF: str = "Arial"
     fontS: int = 15
     foreg: str = "black"
-    backg:str = "white"
+    backg:str = None
     hAlign: str ="hC"
     vAlign: str ="vC"
+    border: str = "0"
+    radius: str = "15"
     moreStyle: str =""    
 
     def style(self):
@@ -30,8 +41,12 @@ class Widget:
             background-color: {self.backg}; 
             color: {self.foreg};
             padding: 5; 
+            border: {self.border}px solid;
+            border-radius: {self.radius}px;
         """
         self.setStyleSheet(style + self.moreStyle)
+        if isinstance(self, QLineEdit):
+            self.selectAll()
         if not isinstance(self, QPushButton):
             self.setAlignment(align[self.hAlign] | align[self.vAlign])
         self.setFont(QFont(self.fontF, self.fontS))
@@ -71,14 +86,14 @@ class MainWindow(QMainWindow):
             t = f"texto #{c}"
             layout.addWidget(Text(t, "NovaMono", 20, "cyan", c, a[0], a[1]))
 
-        b = Button("Botón", "Victor Mono", 30, "red", "orange")
-        layout.addWidget(Text("pablo", "Victor Mono", 20, "sky blue", "blue", "aR", "aT"))
+        b = Button("Botón", "Victor Mono", 30, "red", "orange", radius=40, moreStyle='height: 200px')
+        layout.addWidget(Text("pablo", "Victor Mono", 20, "grey", "blue", "aR", "aT"))
         layout.addWidget(Text("kan", "Victor Mono", 20, "red", "orange", "aL", "aB", "border: 3px solid"))
         layout.addWidget(b)
         layout.addWidget(Text("Manchester City"))
         layout.addWidget(Input(foreg="red", backg="yellow"))
         layout.addWidget(Text("Liverpool", hAlign="aR"))
-        layout.addWidget(Text("lo mismo", moreStyle='border: 5px solid;'))
+        layout.addWidget(Text("lo mismo", border=10))
         layout.addWidget(Input("lo mismo"))
         
         centralWidget = QWidget()
