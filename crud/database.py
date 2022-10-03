@@ -46,16 +46,18 @@ class Database:
         conn.commit()
         conn.close()
 
-    def update(self, id, *args):
-        id = 0 if id=="" else id
+    def update(self, *args):
+        #id = 0 if id=="" else id
         conn = sqlite3.connect(f"{self.base}.db")
         print(self.fields)
         updating = f""
         for f in self.fields:
             updating += f"{f} = ?,"
         updating = updating[:-1]
+        id = args[0]
         sql = f"Update {self.base} set {updating} where id = {id}"
-        columnValues = args
+        columnValues = args[1:]
+        print(f'Debugging ######## {columnValues=} #########')
         conn.execute(sql, columnValues)
         conn.commit()
         conn.close()

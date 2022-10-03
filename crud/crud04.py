@@ -1,4 +1,5 @@
 import os, sys
+from pprint import pprint
 sys.path.append(os.path.abspath('libs'))
 
 from PySide6.QtWidgets import (
@@ -42,7 +43,7 @@ class MainWindow(QMainWindow):
             "nota": "Nota"
             }
         # "Alumno", *list(header.keys())    
-        fields = list(header.keys())[1:]
+        fields = list(header.keys())
         self.alumnos = alumnos = Database("Alumno", *fields)
 
         data = alumnos.select()
@@ -63,9 +64,10 @@ class MainWindow(QMainWindow):
         self.search = Input()
         formulario.addRow(Text('Buscar'), self.search)
         self.search.textChanged.connect(self.update_filter)
+        
         for title in header.values():
             formulario.addRow(Text(title), Input())
-        
+
         layout = QVBoxLayout()
         layout.addLayout(formulario)
         bInsert = Button("Agregar")        
@@ -88,13 +90,17 @@ class MainWindow(QMainWindow):
     def onClicked(self):
         self.selRow = self.table.selectedItems()
         formAlumno = self.findChildren(Input)[1:]
+        roID = 0
         for campoForm, campoGrid in zip(formAlumno, self.selRow):
             campoForm.setText(campoGrid.text())
+            if roID == 0:
+                campoForm.setReadOnly(True)
+                roID += 1
 
     def update_filter(self):
         name = self.search.text().lower()
         for row in range(self.table.rowCount()):
-            item = self.table.item(row, 1)
+            item = self.table.item(row, 0)
             self.table.setRowHidden(row, name not in item.text().lower())
 
     def printCelda(self, celda):
@@ -113,6 +119,7 @@ class MainWindow(QMainWindow):
 
     def updateRecord(self):
         record = [r.text() for r in self.findChildren(Input)[1:]]
+        print(f'Debugging ######## {record=} #########')
         self.alumnos.update(*record)
         for i, celda in enumerate(record, start=1):
             if celda.isdigit():
