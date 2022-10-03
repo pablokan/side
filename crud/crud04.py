@@ -1,6 +1,15 @@
-from PySide6.QtWidgets import QApplication, QMainWindow, QLabel, QVBoxLayout, QWidget, QLineEdit, QPushButton, QTableWidget, QTableWidgetItem, QFormLayout, QAbstractItemView, QMessageBox
-from PySide6.QtCore import Qt
+import os, sys
+sys.path.append(os.path.abspath('libs'))
+
+from PySide6.QtWidgets import (
+    QApplication, QWidget, QMainWindow, 
+    QVBoxLayout, QHBoxLayout, QTableWidget, QTableWidgetItem,
+    QAbstractItemView, QFormLayout, QMessageBox)
+
 from PySide6.QtGui import QFont
+from PySide6.QtCore import Qt
+
+from styles import Text, Input, Button
 
 from database import Database
 
@@ -24,23 +33,22 @@ class Table(QTableWidget):
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
-        def instance(lay, clase):
-            v = clase
-            lay.addWidget(v)
-            return v
 
         header = {
-            "id": "id", 
+            "id": "Identificador", 
             "nombre": "Nombre", 
             "fecha_nac": "Fecha de Nacimiento", 
             "comision": "Comisión", 
             "nota": "Nota"
             }
         # "Alumno", *list(header.keys())    
-        self.alumnos = alumnos = Database("Alumno")
+        fields = list(header.keys())[1:]
+        self.alumnos = alumnos = Database("Alumno", *fields)
 
         data = alumnos.select()
         table = self.table = Table(data, header)
+        table.setTabKeyNavigation(False)
+        table.itemClicked.connect(self.onClicked)
         table.setFont(QFont("NovaMono", 13))
         table.setSortingEnabled(True)
         # Seleccionar toda la fila
@@ -48,38 +56,73 @@ class MainWindow(QMainWindow):
         # Dibujar el fondo usando colores alternados
         self.table.setAlternatingRowColors(True)
         self.f = formulario = QFormLayout()
+        botonera = QHBoxLayout()
+
         self.table.itemDoubleClicked.connect(self.printCelda)
 
-        for title in header:
-            formulario.addRow(title, QLineEdit())
+        self.search = Input()
+        formulario.addRow(Text('Buscar'), self.search)
+        self.search.textChanged.connect(self.update_filter)
+        for title in header.values():
+            formulario.addRow(Text(title), Input())
         
         layout = QVBoxLayout()
         layout.addLayout(formulario)
-        botonSeleccionarFila = QPushButton("Seleccionar fila")        
-        botonSeleccionarFila.clicked.connect(self.seleccionarFila)
-        layout.addWidget(botonSeleccionarFila)
-        botonEliminarFila = QPushButton("Eliminar fila")
-        botonEliminarFila.clicked.connect(self.eliminarFila)
-        layout.addWidget(botonEliminarFila)
+        bInsert = Button("Agregar")        
+        bInsert.clicked.connect(self.insertRecord)
+        botonera.addWidget(bInsert)
+        bUpdate = Button("Modificar")        
+        bUpdate.clicked.connect(self.updateRecord)
+        botonera.addWidget(bUpdate)
+        bDelete = Button("Eliminar")
+        bDelete.clicked.connect(self.deleteRecord)
+        botonera.addWidget(bDelete)
+        layout.addLayout(botonera)
         layout.addWidget(self.table)
-        
-
-
+    
         centralWidget = QWidget()
         centralWidget.setStyleSheet("background-color: skyblue")
         centralWidget.setLayout(layout)
         self.setCentralWidget(centralWidget)
 
+    def onClicked(self):
+        self.selRow = self.table.selectedItems()
+        formAlumno = self.findChildren(Input)[1:]
+        for campoForm, campoGrid in zip(formAlumno, self.selRow):
+            campoForm.setText(campoGrid.text())
+
+    def update_filter(self):
+        name = self.search.text().lower()
+        for row in range(self.table.rowCount()):
+            item = self.table.item(row, 1)
+            self.table.setRowHidden(row, name not in item.text().lower())
+
     def printCelda(self, celda):
         print(celda.text())
 
-    def seleccionarFila(self):
-            filaSeleccionada = self.table.selectedItems()
-            formAlumno = self.findChildren(QLineEdit)
-            for campoForm, campoGrid in zip(formAlumno, filaSeleccionada):
-                campoForm.setText(campoGrid.text())
+    def insertRecord(self):
+        record = [r.text() for r in self.findChildren(Input)[2:]]
+        self.alumnos.insert(*record)
+        self.table.insertRow(0)
+        for i, celda in enumerate(record, start=1):
+            if celda.isdigit():
+                celda = int(celda)
+            item = QTableWidgetItem(celda)
+            item.setData(Qt.DisplayRole, celda) # para que ordene por numeración
+            self.table.setItem(0, i, item)
 
-    def eliminarFila(self):
+    def updateRecord(self):
+        record = [r.text() for r in self.findChildren(Input)[1:]]
+        self.alumnos.update(*record)
+        for i, celda in enumerate(record, start=1):
+            if celda.isdigit():
+                celda = int(celda)
+            item = QTableWidgetItem(celda)
+            item.setData(Qt.DisplayRole, celda) # para que ordene por numeración
+            self.table.setItem(int(self.selRow[0].text()), i, item)
+        
+
+    def deleteRecord(self):
         filaSeleccionada = self.table.selectedItems()
         if filaSeleccionada:
             fila = filaSeleccionada[0].row()
@@ -100,7 +143,7 @@ class MainWindow(QMainWindow):
 if __name__ == '__main__':
     app = QApplication()
     window = MainWindow()
-    window.setGeometry(1000, 100, 700, 500)
+    window.resize(700, 1000)
     window.show()
     app.exec()
 

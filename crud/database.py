@@ -4,6 +4,7 @@ class Database:
     def __init__(self, base, *args) -> None:
         """ Params: Nombre de la base de datos y nombres de los atributos """
         self.base = base
+        self.fields = args
         conn = sqlite3.connect(f"{base}.db")
         if len(args) != 0:
             sArgs = ""
@@ -22,7 +23,7 @@ class Database:
     def insert(self, *args):
         conn = sqlite3.connect(f"{self.base}.db")
         sql = f"INSERT INTO {self.base}({self.sArgs}) VALUES {args}"
-        #print(sql)
+        print(sql)
         conn.execute(sql)
         conn.commit()
         conn.close()
@@ -48,14 +49,19 @@ class Database:
     def update(self, id, *args):
         id = 0 if id=="" else id
         conn = sqlite3.connect(f"{self.base}.db")
-        sql = f"Update {self.base} set nombre = ?, fecha_nac = ? where id = {id}"
+        print(self.fields)
+        updating = f""
+        for f in self.fields:
+            updating += f"{f} = ?,"
+        updating = updating[:-1]
+        sql = f"Update {self.base} set {updating} where id = {id}"
         columnValues = args
         conn.execute(sql, columnValues)
         conn.commit()
         conn.close()
     
 if __name__ == '__main__':
-    alumnos = Database("persona", "nombre", "fecha_nac")
+    alumnos = Database("Persona", "nombre", "fecha_nac")
     alumnos.insert("Juan", "2001-02-02")
     alumnos.insert("Pipo", "1991-02-03")
     alumnos.insert("Luis", "2111-02-04")

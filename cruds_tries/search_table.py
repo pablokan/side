@@ -4,7 +4,8 @@ from PySide6.QtWidgets import (
     QWidget,
     QTableWidget,
     QTableWidgetItem,
-    QLineEdit
+    QLineEdit,
+    QPushButton
 )
 
         
@@ -29,11 +30,20 @@ class Window(QWidget):
             for y in range(len(data[x])):
                 item = QTableWidgetItem(str(data[x][y]))
                 self.table.setItem(x, y, item)
-    
-        gridLayout.addWidget(QLineEdit())
+
+        self.search = QLineEdit()
+        gridLayout.addWidget(self.search)
+        self.search.textChanged.connect(self.update_filter)
+
         gridLayout.addWidget(self.table)
         outerLayout.addLayout(gridLayout)
         self.setLayout(outerLayout)
+
+    def update_filter(self):
+        name = self.search.text().lower()
+        for row in range(self.table.rowCount()):
+            item = self.table.item(row, 0)
+            self.table.setRowHidden(row, name not in item.text().lower())
 
 if __name__ == "__main__":
     app = QApplication()
