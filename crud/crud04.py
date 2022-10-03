@@ -2,7 +2,7 @@ from PySide6.QtWidgets import QApplication, QMainWindow, QLabel, QVBoxLayout, QW
 from PySide6.QtCore import Qt
 from PySide6.QtGui import QFont
 
-from clase_sqlite import Database
+from database import Database
 
 class Table(QTableWidget):
     def __init__(self, data, header):
@@ -29,9 +29,17 @@ class MainWindow(QMainWindow):
             lay.addWidget(v)
             return v
 
+        header = {
+            "id": "id", 
+            "nombre": "Nombre", 
+            "fecha_nac": "Fecha de Nacimiento", 
+            "comision": "Comisión", 
+            "nota": "Nota"
+            }
+        # "Alumno", *list(header.keys())    
         self.alumnos = alumnos = Database("Alumno")
+
         data = alumnos.select()
-        header = ["id", "Nombre", "Fecha de Nacimiento", "Comisión", "Nota"]
         table = self.table = Table(data, header)
         table.setFont(QFont("NovaMono", 13))
         table.setSortingEnabled(True)

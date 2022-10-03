@@ -48,14 +48,14 @@ class Database:
     def update(self, id, *args):
         id = 0 if id=="" else id
         conn = sqlite3.connect(f"{self.base}.db")
-        sql = f"Update aaa set nombre = ?, fecha_nac = ? where id = {id}"
+        sql = f"Update {self.base} set nombre = ?, fecha_nac = ? where id = {id}"
         columnValues = args
         conn.execute(sql, columnValues)
         conn.commit()
         conn.close()
     
 if __name__ == '__main__':
-    alumnos = Database("aaa", "nombre", "fecha_nac")
+    alumnos = Database("persona", "nombre", "fecha_nac")
     alumnos.insert("Juan", "2001-02-02")
     alumnos.insert("Pipo", "1991-02-03")
     alumnos.insert("Luis", "2111-02-04")
