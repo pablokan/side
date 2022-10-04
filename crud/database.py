@@ -10,6 +10,7 @@ class Database:
             sArgs = ""
             for arg in args: sArgs += arg + ", " 
             self.sArgs = sArgs[:-2]
+            print(f'Debugging ######## {self.sArgs=} #########')
             self.params = params = f"('id' integer primary key autoincrement, {self.sArgs})"
             try:
                 sql = f"create table {base} {params}"
@@ -22,6 +23,7 @@ class Database:
 
     def insert(self, *args):
         conn = sqlite3.connect(f"{self.base}.db")
+        if self.sArgs.startswith('id'): self.sArgs = self.sArgs[4:]
         sql = f"INSERT INTO {self.base}({self.sArgs}) VALUES {args}"
         print(sql)
         conn.execute(sql)

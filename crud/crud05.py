@@ -70,7 +70,12 @@ class MainWindow(QMainWindow):
             formulario.addRow(Text(title), Input())
 
         layout = QVBoxLayout()
-        layout.addLayout(formulario)
+
+        formBase = self.formBase = QWidget()
+        formBase.setHidden(True)
+        layout.addWidget(formBase) 
+        formBase.setLayout(formulario)
+        #layout.addLayout(formulario)
         layout.addWidget(Line())
         bNew = Button("Nuevo")
         bNew.clicked.connect(self.newRecord)
@@ -98,8 +103,7 @@ class MainWindow(QMainWindow):
 
 
     def newRecord(self):
-        for inp in self.findChildren(Input):
-            inp.setHidden(False)
+        self.formBase.setHidden(False)
 
     def onClicked(self):
         self.selRow = self.table.selectedItems()
@@ -122,7 +126,7 @@ class MainWindow(QMainWindow):
         print(celda.text())
 
     def insertRecord(self):
-        record = [r.text() for r in self.findChildren(Input)[2:]]
+        record = [r.text() for r in self.findChildren(Input)[1:-1]]
         self.alumnos.insert(*record)
         self.table.insertRow(0)
         for i, celda in enumerate(record, start=1):
