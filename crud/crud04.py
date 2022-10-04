@@ -100,7 +100,7 @@ class MainWindow(QMainWindow):
     def update_filter(self):
         name = self.search.text().lower()
         for row in range(self.table.rowCount()):
-            item = self.table.item(row, 0)
+            item = self.table.item(row, 1)
             self.table.setRowHidden(row, name not in item.text().lower())
 
     def printCelda(self, celda):
