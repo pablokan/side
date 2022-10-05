@@ -1,79 +1,85 @@
+import os
 import sqlite3
+from pprint import pprint
 
 class Database:
     def __init__(self, base, *args) -> None:
-        """ Params: Nombre de la base de datos y nombres de los atributos """
+        """ 
+            Parámetros: Nombre de la base de datos y de los atributos 
+            Ejemplo: base = Database("Persona", "nombre", "edad")
+        """
         self.base = base
         self.fields = args
-        conn = sqlite3.connect(f"{base}.db")
-        if len(args) != 0:
-            sArgs = ""
-            for arg in args: sArgs += arg + ", " 
-            self.sArgs = sArgs[:-2]
-            print(f'Debugging ######## {self.sArgs=} #########')
-            self.params = params = f"('id' integer primary key autoincrement, {self.sArgs})"
-            try:
-                sql = f"create table {base} {params}"
-                #print(sql)
-                conn.execute(sql)
-                #print(f"Se creó la tabla {base}")                        
-            except sqlite3.OperationalError:
-                pass
+        conn = self.connection()
+        self.sArgs = ",".join(args)
+        fieldNames = f"('id' integer primary key autoincrement, {self.sArgs})"
+        try:
+            conn.execute(f"create table {base} {fieldNames}")
+            print(f"\n{base} creada")                        
+        except sqlite3.OperationalError:
+            print(f"\n{base} OK")
         conn.close()
 
+    def connection(self):
+        return sqlite3.connect(f"{self.base}.db")
+
     def insert(self, *args):
-        conn = sqlite3.connect(f"{self.base}.db")
-        if self.sArgs.startswith('id'): self.sArgs = self.sArgs[4:]
+        conn = self.connection()
         sql = f"INSERT INTO {self.base}({self.sArgs}) VALUES {args}"
-        print(sql)
         conn.execute(sql)
+        print(f"\n{args} fila agregada")
         conn.commit()
         conn.close()
 
-    def select(self):
-        conn = sqlite3.connect(f"{self.base}.db")
-        rs = conn.execute(f"SELECT * FROM {self.base}")
-        lista = []
-        for r in rs: 
-            lista.append(r)
+    def select(self) -> list:
+        conn = self.connection()
+        recordSet = list(conn.execute(f"SELECT * FROM {self.base}"))
+        print(f"\nObtengo todas las filas de {self.base}\n")
         conn.close()
-        return lista
+        return recordSet
         
     def delete(self, id):
-        id = 0 if id=="" else id
-        conn = sqlite3.connect(f"{self.base}.db")
+        conn = self.connection()
         sql = f"DELETE FROM {self.base} WHERE id={id}"
-        #print(sql)
-        rs = conn.execute(sql)
+        conn.execute(sql)
+        print(f"\nFila #{id} borrada")
         conn.commit()
         conn.close()
 
     def update(self, *args):
-        #id = 0 if id=="" else id
-        conn = sqlite3.connect(f"{self.base}.db")
-        print(self.fields)
+        conn = self.connection()
         updating = f""
-        for f in self.fields:
-            updating += f"{f} = ?,"
+        for f in self.fields: updating += f"{f} = ?,"
         updating = updating[:-1]
         id = args[0]
         sql = f"Update {self.base} set {updating} where id = {id}"
         columnValues = args[1:]
-        print(f'Debugging ######## {columnValues=} #########')
         conn.execute(sql, columnValues)
+        print(f"\n{args} Fila #{id} actualizada")
         conn.commit()
         conn.close()
     
 if __name__ == '__main__':
-    alumnos = Database("Persona", "nombre", "fecha_nac")
+    os.system('clear')
+
+    # crea o abre
+    alumnos = Database("Persona", "nombre", "fecha_nac") 
+
+    # agrega filas
     alumnos.insert("Juan", "2001-02-02")
+    for i in range(3):
+        alumnos.insert(f"Nombre {i+1}", f"200{i}-01-01")    
     alumnos.insert("Pipo", "1991-02-03")
     alumnos.insert("Luis", "2111-02-04")
-    data = alumnos.select()
-    print(data)
-    id = input("A quien desea borrar? ")
-    alumnos.delete(id)
+
+    # borra fila 1
+    alumnos.delete(1)
+
+    # actualiza fila 2
     alumnos.update(2, "Quico", "1987-11-11")
-    alumnos.select()
-
-
+    
+    # lee todas las filas
+    data = alumnos.select()
+    
+    # muestra todas las filas
+    pprint(data, indent=2)
