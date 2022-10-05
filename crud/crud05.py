@@ -48,8 +48,8 @@ class MainWindow(QMainWindow):
             "nota": "Nota"
             }
         # "Alumno", *list(header.keys())    
-        fields = list(header.keys())
-        self.alumnos = alumnos = Database("Alumno", *fields)
+        fieldKeys = list(header.keys())[1:]
+        self.alumnos = alumnos = Database("Alumno", *fieldKeys)
 
         data = alumnos.select()
         table = self.table = Table(data, header)
@@ -137,15 +137,18 @@ class MainWindow(QMainWindow):
             self.table.setItem(0, i, item)
 
     def updateRecord(self):
-        record = [r.text() for r in self.findChildren(Input)[1:]]
+        record = [r.text() for r in self.findChildren(Input)[:-1]]
         print(f'Debugging ######## {record=} #########')
         self.alumnos.update(*record)
-        for i, celda in enumerate(record, start=1):
+        selRow = self.table.selectedItems()
+        print(f'Debugging ######## {selRow[0].row()=} #########')
+        r = int(selRow[0].row())
+        for c, celda in enumerate(record, start=0):
             if celda.isdigit():
                 celda = int(celda)
             item = QTableWidgetItem(celda)
             item.setData(Qt.DisplayRole, celda) # para que ordene por numeración
-            self.table.setItem(int(self.selRow[0].text()), i, item)
+            self.table.setItem(r, c, item)
         
 
     def deleteRecord(self):
