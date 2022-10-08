@@ -5,8 +5,8 @@ from PySide6.QtCore import Qt
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
-
-        with open('pruebas/themes/solarized_light.css', 'r', encoding='utf-8') as file:
+        qssFiles = ["AMOLED", "Aqua", "ConsoleStyle", "ElegantDark", "MacOS", "ManjaroMix", "MaterialDark", "NeonButtons"]
+        with open(f'QSS-master/{qssFiles[7]}.qss', 'r', encoding='utf-8') as file:
             sts = file.read()
         self.setStyleSheet(sts)
         

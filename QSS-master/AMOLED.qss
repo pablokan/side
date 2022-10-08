@@ -5,6 +5,10 @@ Company: GTRONICK
 Last updated: 01/10/2021, 15:49.
 Available at: https://github.com/GTRONICK/QSS/blob/master/AMOLED.qss
 */
+
+QWidget {
+	font-size: 30px;
+}
 QMainWindow {
 	background-color:#000000;
 }
