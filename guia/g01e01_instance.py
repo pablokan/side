@@ -5,19 +5,24 @@ class MainWindow(QMainWindow):
         super().__init__()
 
         def instance(lay, clase):
-            v = clase
-            lay.addWidget(v)
-            return v
+            """
+            una función para hacer los dos pasos:
+            1) instanciar
+            2) colocar en el layout
+            en uno solo
+            """
+            v = clase # instancia
+            lay.addWidget(v) # agrega al layout
+            return v # devuelve el objeto
 
         layout = QVBoxLayout()
 
         self.n1 = instance(layout, QLineEdit())
         self.n2 = instance(layout, QLineEdit())
         boton = instance(layout, QPushButton("Sumar"))
-        self.t = instance(layout, QLabel("Resultado"))
-
         boton.clicked.connect(self.sumar)
-   
+        self.t = instance(layout, QLabel("Resultado"))
+        
         centralWidget = QWidget()
         centralWidget.setLayout(layout)
         self.setCentralWidget(centralWidget)

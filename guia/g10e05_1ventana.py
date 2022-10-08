@@ -10,40 +10,42 @@ class MainWindow(QMainWindow):
 
         self.layout = layout = QVBoxLayout()
 
-        self.mensaje = Text('Cuántos datos quiere cargar?', fontS=30)
-        layout.addWidget(self.mensaje)
-        
-        self.entrada = Input('', fontS=30)
+        self.texto = Text('Cuántas edades va a cargar?', fontS=30)
+        layout.addWidget(self.texto)
+
+        self.entrada = Input(fontS=30)
         layout.addWidget(self.entrada)
         
         self.boton = boton = Button('Cargar', fontS=30)
         layout.addWidget(boton)
         boton.setDefault(True)
         boton.clicked.connect(self.cargar)
-
+        
         centralWidget = QWidget()
         centralWidget.setLayout(layout)
         self.setCentralWidget(centralWidget)
 
     def cargar(self):
-        self.mensaje.setText("Carga de edades")
+        cantidad = int(self.entrada.text())
+        self.texto.setText("Carga de edades")
         self.entrada.deleteLater()
         self.boton.close()
-        cantidad = int(self.entrada.text())
-        for i in range(cantidad):
+        for _ in range(cantidad):
             self.layout.addWidget(Input())
         b = Button("Promediar")
-        self.layout.addWidget(b)
         b.clicked.connect(self.promediar)
-
+        self.layout.addWidget(b)
+    
     def promediar(self):
-        edades = self.findChildren(Input)
         t = 0
+        edades = self.findChildren(Input)
         for edad in edades:
             t += int(edad.text())
-        salida = Text(f"Promedio: {t//len(edades)}")
+        salida = Text(f"El promedio es {t//len(edades)}")
         self.layout.addWidget(salida)
-        
+
+
+
 if __name__ == '__main__':
     app = QApplication()
     window = MainWindow()
