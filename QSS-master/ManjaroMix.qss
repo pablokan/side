@@ -5,6 +5,11 @@ Company: GTRONICK
 Last updated: 25/02/2020, 15:42.
 Available at: https://github.com/GTRONICK/QSS/blob/master/ManjaroMix.qss
 */
+
+* {
+	font-size: 30px;
+}
+
 QMainWindow {
 	background-color:#151a1e;
 }

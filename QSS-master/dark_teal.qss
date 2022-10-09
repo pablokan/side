@@ -5,8 +5,8 @@
 
 *{
   color: #ffffff;
-    font-size: 13.0px;
-    line-height: 13.0px;
+    font-size: 20px;
+    line-height: 13px;
   selection-background-color: #6effe8;
   selection-color: #000000;
 }
