@@ -29,7 +29,7 @@ if __name__ == '__main__':
     app = QApplication()
     window = MainWindow()
 
-    sf = open("darktheme.qss")
+    sf = open("themes/dark_teal.qss")
     sts = sf.read()
     sf.close()
     app.setStyleSheet(sts)
