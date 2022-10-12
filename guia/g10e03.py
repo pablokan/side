@@ -7,9 +7,9 @@ class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
 
-        self.setWindowTitle("Saludo!") # ya que está le pongo título a la ventana
+        self.setWindowTitle("Contar vocales") # ya que está le pongo título a la ventana
         layout = QVBoxLayout() # instancio el vertical box
-        self.texto = QLabel('Ingrese su nombre:') # instancio un texto
+        self.texto = QLabel('Ingrese una frase') # instancio un texto
         layout.addWidget(self.texto) # agrego el texto al vertical box
         self.entrada = QLineEdit() # instancio una caja de texto
         layout.addWidget(self.entrada) # agrego la caja de texto al vertical box
@@ -25,10 +25,12 @@ class MainWindow(QMainWindow):
         for letra in self.entrada.text():
             if letra in "aeiou":
                 c += 1
-        self.texto.setText(str(c)) 
+        self.texto.setText(f"Hay {c} vocales") 
 
 if __name__ == '__main__':
     app = QApplication()
+    css = '*{font-size: 20px; background-color: #277c2c; color: #f4fc6b;}'
+    app.setStyleSheet(css)
     window = MainWindow()
     window.show()
     app.exec()

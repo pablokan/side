@@ -7,7 +7,7 @@ class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
 
-        self.setWindowTitle("Saludo!") # ya que está le pongo título a la ventana
+        self.setWindowTitle("Invertir nombre") # ya que está le pongo título a la ventana
         layout = QVBoxLayout() # instancio el vertical box
         self.texto = QLabel('Ingrese su nombre (formato Juan Perez):') # instancio un texto
         layout.addWidget(self.texto) # agrego el texto al vertical box
@@ -26,6 +26,8 @@ class MainWindow(QMainWindow):
 
 if __name__ == '__main__':
     app = QApplication()
+    css = '*{font-size: 20px; background-color: #f5432d; color: #230260;}'
+    app.setStyleSheet(css)
     window = MainWindow()
     window.show()
     app.exec()

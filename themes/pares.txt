@@ -1,0 +1,50 @@
+1
+Turquoise Blue
+#66e9f4
+Midnight Blue
+#101550
+
+2
+Red Orange
+#f5432d
+Royal Purple
+#230260
+
+3
+Green
+#277c2c
+Laser Lemon
+#f4fc6b
+
+4
+Asparagus
+#688434
+Black
+#000719
+
+5
+Indigo
+#5692de
+Midnight Blue
+#1b1047
+
+Sepia
+#8b513b
+Electric Lime
+#77fc09
+
+Timberwolf
+#c1dddf
+Purple Heart
+#5f00ec
+
+Plum
+#8e2b77
+Cornflower
+#a6d4dd
+
+
+Sea Green
+#c6f5c7
+Maroon
+#850a30
