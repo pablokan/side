@@ -28,23 +28,32 @@ Indigo
 Midnight Blue
 #1b1047
 
+6
 Sepia
 #8b513b
 Electric Lime
 #77fc09
 
+7
 Timberwolf
 #c1dddf
 Purple Heart
 #5f00ec
 
+8
 Plum
 #8e2b77
 Cornflower
 #a6d4dd
 
-
+9
 Sea Green
 #c6f5c7
 Maroon
 #850a30
+
+10
+Fuzzy Wuzzy Brown
+#b56576
+Black
+#130218
