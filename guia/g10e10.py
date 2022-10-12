@@ -1,54 +1,31 @@
 import os, sys
 sys.path.append(os.path.abspath('libs'))
 
-from PySide6.QtWidgets import (QApplication, QWidget, QMainWindow, QVBoxLayout, QTableWidget, QTableWidgetItem, QFormLayout, QHBoxLayout)
+from PySide6.QtWidgets import (
+    QApplication, QWidget, QMainWindow, QVBoxLayout, 
+    QTableWidget, QTableWidgetItem, QFormLayout, QHBoxLayout,
+    QLineEdit, QPushButton,
+    )
 from PySide6.QtCore import Qt
 
-from styles import Text, Input, Button
-
-
-class Table(QTableWidget):
-    def __init__(self, data, header):
-        super().__init__()
-        self.setRowCount(len(data))
-        self.setColumnCount(len(data[0]))
-        self.setHorizontalHeaderLabels(header)
-        for x in range(len(data)):
-            for y in range(len(data[x])):
-                celda = str(data[x][y])
-                if celda.isdigit():
-                    celda = int(celda)
-                item = QTableWidgetItem(celda)
-                item.setData(Qt.DisplayRole, celda) # para que ordene por numeración
-                self.setItem(x, y, item)
-        self.resizeColumnsToContents()
-
-    def getAll(self) -> list:
-        tabla = []
-        for f in range (self.rowCount()):
-            fila = []
-            for c in range(self.columnCount()):
-                fila.append(self.item(f, c).text())
-            tabla.append(fila)
-        return tabla
 
 class MainWindow(QMainWindow):
-    def __init__(self, datos, cabeza):
+    def __init__(self):
         super().__init__()
 
         self.empleados = []
         layout = QVBoxLayout()
         formu = QFormLayout()
-        formu.addRow("Nombre", Input())
-        formu.addRow("Salario", Input())
+        formu.addRow("Nombre", QLineEdit())
+        formu.addRow("Salario", QLineEdit())
         layout.addLayout(formu)
         botonera = QHBoxLayout()
-        bAdd = Button('Agregar', foreg='red', backg='yellow')
+        bAdd = QPushButton('Agregar')
         botonera.addWidget(bAdd)
         bAdd.setDefault(True)
         bAdd.clicked.connect(self.listAdd)
         
-        bProcesar = Button('Procesar', foreg='red', backg='yellow')
+        bProcesar = QPushButton('Procesar')
         botonera.addWidget(bProcesar)
         #bProcesar.setDefault(True)
         bProcesar.clicked.connect(self.procesar)
@@ -59,7 +36,7 @@ class MainWindow(QMainWindow):
 
     def listAdd(self):
         lista = []
-        for e in self.findChildren(Input):
+        for e in self.findChildren(QLineEdit):
             if e.text().isdigit():
                 d = int(e.text())
             else:
@@ -74,11 +51,8 @@ class MainWindow(QMainWindow):
 
 if __name__ == '__main__':
     app = QApplication()
-    personas = [
-        ("Juan", "1990-02-07"),
-        ("Luis", "2007-01-25"),
-        ("Ana", "2000-12-30")
-        ]
-    window = MainWindow(personas, ("Nombre", "Fecha de nacimiento"))
+    css = '*{font-size: 20px; background-color: #b56576; color: #130218;}'
+    app.setStyleSheet(css)    
+    window = MainWindow()
     window.show()
     app.exec()

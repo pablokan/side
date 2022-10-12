@@ -41,6 +41,8 @@ class MainWindow(QMainWindow):
 
 if __name__ == '__main__':
     app = QApplication()
+    css = '*{font-size: 20px; background-color: #c1dddf; color: #5f00ec;}'
+    app.setStyleSheet(css)
     window = MainWindow()
     window.show()
     app.exec()

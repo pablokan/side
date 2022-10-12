@@ -48,7 +48,7 @@ class MainWindow(QMainWindow):
         grilla = Grilla()
         mainLayout.addWidget(grilla)
 
-        b = QPushButton()
+        b = QPushButton("Mostrar nombres de mujeres")
         mainLayout.addWidget(b)
         b.clicked.connect(self.procesar)
         centralWidget = QWidget()
@@ -72,7 +72,8 @@ class MainWindow(QMainWindow):
 
 if __name__ == "__main__":
     app = QApplication()
-    app.setStyleSheet('* {font-size:30px; background-color:blue; color:"sky blue"}')
+    css = '*{font-size: 20px; background-color: #c6f5c7; color: #850a30;}'
+    app.setStyleSheet(css)
     window = MainWindow()
     window.show()
     app.exec()

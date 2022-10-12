@@ -1,10 +1,12 @@
 import os, sys
 sys.path.append(os.path.abspath('libs'))
 
-from PySide6.QtWidgets import (QApplication, QWidget, QMainWindow, QVBoxLayout, QTableWidget, QTableWidgetItem)
+from PySide6.QtWidgets import (
+    QApplication, QWidget, QMainWindow, 
+    QVBoxLayout, QTableWidget, QTableWidgetItem,
+    QPushButton, QMessageBox
+)
 from PySide6.QtCore import Qt
-
-from styles import Text, Input, Button
 
 
 class Table(QTableWidget):
@@ -35,11 +37,11 @@ class Table(QTableWidget):
 class MainWindow(QMainWindow):
     def __init__(self, datos, cabeza):
         super().__init__()
-
+        self.resize(400, 200)
         layout = QVBoxLayout()
         self.t = t = Table(datos, cabeza)
         layout.addWidget(t)
-        boton = Button('Button', foreg='red', backg='yellow')
+        boton = QPushButton('Button')
         layout.addWidget(boton)
         boton.setDefault(True)
         boton.clicked.connect(self.mayores)
@@ -48,6 +50,7 @@ class MainWindow(QMainWindow):
         self.setCentralWidget(centralWidget)
 
     def mayores(self):
+        sM = ""
         from datetime import date
         hoy = date.today()
         listaCompleta = self.t.getAll()
@@ -59,10 +62,17 @@ class MainWindow(QMainWindow):
                 edad -= 1
             if edad >= 18:
                 print(fila[0])
+                sM += fila[0] + ", "
+        sM = sM[:-2]
+        dlg = QMessageBox()
+        dlg.setWindowTitle("Mayores de edad")
+        dlg.setText(sM)
+        dlg.exec()
         
-
 if __name__ == '__main__':
     app = QApplication()
+    css = '*{font-size: 20px; background-color: #8e2b77; color: #a6d4dd;}'
+    app.setStyleSheet(css)
     personas = [
         ("Juan", "1990-02-07"),
         ("Luis", "2007-01-25"),

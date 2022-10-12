@@ -6,18 +6,18 @@ class MainWindow(QMainWindow):
 
         layout = QVBoxLayout()
         self.lista = lista = QListWidget()
-        self.lista.addItems(["11", "22", "12", "15"])
+        numeros = ["11", "22", "12", "15"]
+        self.lista.addItems(numeros)
+        
         lista.currentItemChanged.connect(self.uno)
         lista.currentTextChanged.connect(self.dos)
         layout.addWidget(self.lista)
         self.texto = QLabel('Promedio')
         layout.addWidget(self.texto)
-        self.entrada = QLineEdit()
-        layout.addWidget(self.entrada)
         boton = QPushButton('Promedio')
         layout.addWidget(boton)
         boton.clicked.connect(self.promedio)
-        self.listaMayores = listaMayores = QListWidget()
+        self.listaMayores = QListWidget()
         layout.addWidget(self.listaMayores)
         centralWidget = QWidget()
         centralWidget.setLayout(layout)
@@ -46,6 +46,8 @@ class MainWindow(QMainWindow):
 
 if __name__ == '__main__':
     app = QApplication()
+    css = '*{font-size: 20px; background-color: #8b513b; color: #77fc09;}'
+    app.setStyleSheet(css)
     window = MainWindow()
     window.show()
     app.exec()
