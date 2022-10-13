@@ -2,3 +2,4 @@ python-version
 settings.json
 pruebas/
 __pycache__/
+run.json
