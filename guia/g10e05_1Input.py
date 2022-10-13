@@ -34,7 +34,7 @@ class MainWindow(QMainWindow):
         self.numero = Input()
         self.t = 0
         self.layout.addWidget(self.numero)
-        b = Button("Agregando...")
+        self.b = b = Button("Agregando...")
         b.clicked.connect(self.promediar)
         self.layout.addWidget(b)
     
@@ -45,8 +45,8 @@ class MainWindow(QMainWindow):
         if self.contador == self.cantidad:
             salida = Text(f"El promedio es {self.t//self.cantidad}")
             self.layout.addWidget(salida)
-
-
+            self.numero.deleteLater()
+            self.b.deleteLater()
         # salida = Text(f"El promedio es {t//len(edades)}")
         # self.layout.addWidget(salida)
 
