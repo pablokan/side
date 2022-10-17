@@ -67,7 +67,7 @@ class MainWindow(QMainWindow):
         dlg = QMessageBox(self)
         dlg.setWindowTitle("Mujeres")
         dlg.setText(chicas)
-        button = dlg.exec()
+        dlg.exec()
 
 
 if __name__ == "__main__":
