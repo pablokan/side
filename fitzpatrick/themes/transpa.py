@@ -1,24 +1,7 @@
-# Ejemplo de envío de data ida y vuelta entre ventanas
-
 from PySide6.QtWidgets import QApplication, QMainWindow, QLabel, QVBoxLayout, QWidget, QLineEdit, QPushButton
 from PySide6.QtGui import QFont
 from PySide6.QtCore import Qt
 
-class Window(QWidget):
-    def __init__(self):
-        super().__init__()
-        layout = QVBoxLayout()
-        self.boton = QPushButton(f"Botón {window.entrada.text()}")
-        self.entrada = QLineEdit()
-        self.boton.clicked.connect(self.vuelta)
-        self.boton.setStyleSheet("margin: 30px;")
-        layout.addWidget(self.boton)
-        layout.addWidget(self.entrada)
-        self.setLayout(layout)
-
-    def vuelta(self):
-        window.texto.setText(self.entrada.text())
-    
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -26,6 +9,7 @@ class MainWindow(QMainWindow):
 
         layout = QVBoxLayout()
         self.texto = QLabel('label')
+        
         layout.addWidget(self.texto)
         self.entrada = QLineEdit()
         layout.addWidget(self.entrada)
@@ -38,16 +22,21 @@ class MainWindow(QMainWindow):
         self.setCentralWidget(centralWidget)
 
     def function_name(self):
-        self.w = Window()
-        css = '*{font-size: 30px; background-color: #c6f5c7; color: #850a30;}'
-        self.w.setStyleSheet(css)
-        self.w.move(3000,200)
-        self.w.show()
+        self.texto.setText(f'Hola {self.entrada.text()}')
 
 if __name__ == '__main__':
     app = QApplication()
-    css = '*{font-size: 30px; background-color: darkblue; color: skyblue;}'
+    css = '*{font-size: 40px; background-color:red}'
+    app.setStyleSheet(css)
     window = MainWindow()
-    window.setStyleSheet(css)
+    css = """
+            background-color: yellow;
+            background:transparent;
+        """
+    #window.setWindowFlags(Qt.FramelessWindowHint)
+    #window.setAttribute(Qt.WA_TranslucentBackground)
+    #window.setStyleSheet(css)
+    window.setWindowOpacity(0.75)
+
     window.show()
     app.exec()
