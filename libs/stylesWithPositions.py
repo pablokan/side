@@ -92,9 +92,10 @@ class MainWindow(QMainWindow):
 
         # y ahora los 3 botones seteados del mismo modo
 
-        boton1 = Button("5,5,120,40", parent=self, posAsize=(5,5,120,40))
-        boton2 = Button("30,30,200,60", backg='cyan', parent=self, posAsize=(30,30,200,60))
-        boton3 = Button("100,100,400,80", parent=self, posAsize=(100,100,400,80))
+        boton1 = Button("5,5,120,40", backg='orange',  parent=self, posAsize=(5,5,120,40))
+        boton2 = Button("100,100,400,80", fontS=40, border=5, parent=self, posAsize=(100,100,400,80))
+        boton3 = Button("380,170,200,60", backg='cyan', parent=self, posAsize=(380,170,200,60))
+        
 
 if __name__ == '__main__':
     app = QApplication()
