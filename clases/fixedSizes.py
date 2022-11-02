@@ -16,6 +16,8 @@ class MainWindow(QMainWindow):
         frameAzul.setStyleSheet("background-color: blue;") # color de fondo del frame
         
         # y ahora los 3 botones seteados del mismo modo
+        boton0 = QPushButton("5,5,100,20", self)
+        boton0.setGeometry(5, 5, 100, 20)
         boton1 = QPushButton("5,5,100,20", frameAzul)
         boton1.setGeometry(5, 5, 100, 20)
         boton2 = QPushButton("30,30,200,40", frameAzul)
