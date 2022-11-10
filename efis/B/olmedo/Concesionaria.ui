@@ -1,0 +1,1173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>626</width>
+    <height>486</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QHBoxLayout" name="horizontalLayout_6">
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
+    <item>
+     <widget class="QFrame" name="frame">
+      <property name="styleSheet">
+       <string notr="true">QFrame{
+background-color:rgb(0,0,0);
+}
+
+QPushButton{
+background-color:000000ff;
+border-radius:20px;
+}
+
+QPushButton:hover{
+background-color:rgb(61,61,61);
+border-radius:20px;
+}</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_2" stretch="1,8">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QFrame" name="frame_superior">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>42</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QFrame{
+background-color:rgb(0,0,0);
+}
+
+QPushButton{
+background-color:000000ff;
+border-radius:20px;
+}
+
+QPushButton:hover{
+background-color:rgb(61,61,61);
+border-radius:20px;
+}</string>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout">
+          <item>
+           <widget class="QPushButton" name="pushButton_5">
+            <property name="minimumSize">
+             <size>
+              <width>200</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset>
+              <normaloff>../../Users/GoodGame/Downloads/menu-svgrepo-com.svg</normaloff>../../Users/GoodGame/Downloads/menu-svgrepo-com.svg</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>38</width>
+              <height>38</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>207</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButton_4">
+            <property name="minimumSize">
+             <size>
+              <width>40</width>
+              <height>40</height>
+             </size>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset>
+              <normaloff>../../Users/GoodGame/Downloads/minimize-svgrepo-com (1).svg</normaloff>../../Users/GoodGame/Downloads/minimize-svgrepo-com (1).svg</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>38</width>
+              <height>38</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButton_3">
+            <property name="minimumSize">
+             <size>
+              <width>40</width>
+              <height>40</height>
+             </size>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset>
+              <normaloff>../../Users/GoodGame/Downloads/minimize-svgrepo-com.svg</normaloff>../../Users/GoodGame/Downloads/minimize-svgrepo-com.svg</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>28</width>
+              <height>38</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButton_2">
+            <property name="minimumSize">
+             <size>
+              <width>40</width>
+              <height>40</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true"/>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset>
+              <normaloff>../../Users/GoodGame/Downloads/maximize-svgrepo-com.svg</normaloff>../../Users/GoodGame/Downloads/maximize-svgrepo-com.svg</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>28</width>
+              <height>38</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButton">
+            <property name="minimumSize">
+             <size>
+              <width>40</width>
+              <height>40</height>
+             </size>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset>
+              <normaloff>../../Users/GoodGame/Downloads/icons8-close.svg</normaloff>../../Users/GoodGame/Downloads/icons8-close.svg</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>38</width>
+              <height>38</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QFrame" name="frame_contenido">
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout_2">
+          <item>
+           <widget class="QFrame" name="frame_control">
+            <property name="minimumSize">
+             <size>
+              <width>200</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>0</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QFrame{
+	background-color: rgb(209, 8, 88);
+}
+
+QPushButton{
+background-color: rgb(209,69,88);
+border-top-left-radius:20px;
+border-bottom-left-radius:20px;
+color:rgb(255,255,255);
+font:77 10pt &quot;Arial Black&quot;;
+}
+
+QPushButton:hover{
+background-color: white;
+border-top-left-radius:20px;
+border-bottom-left-radius:20px;
+color:rgb(0,0,0);
+font: 77 10pt &quot;Arial Black&quot;;
+}</string>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_3">
+             <item>
+              <widget class="QPushButton" name="bt_stock">
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>40</height>
+                </size>
+               </property>
+               <property name="text">
+                <string>STOCK</string>
+               </property>
+               <property name="icon">
+                <iconset>
+                 <normaloff>../../Users/GoodGame/Downloads/garage-svgrepo-com.svg</normaloff>../../Users/GoodGame/Downloads/garage-svgrepo-com.svg</iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>35</width>
+                 <height>35</height>
+                </size>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="bt_agregar">
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>40</height>
+                </size>
+               </property>
+               <property name="text">
+                <string>AÑADIR</string>
+               </property>
+               <property name="icon">
+                <iconset>
+                 <normaloff>../../Users/GoodGame/Downloads/add-svgrepo-com.svg</normaloff>../../Users/GoodGame/Downloads/add-svgrepo-com.svg</iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>35</width>
+                 <height>35</height>
+                </size>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="bt_actualizar_stock">
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>40</height>
+                </size>
+               </property>
+               <property name="text">
+                <string>ACTUALIZAR</string>
+               </property>
+               <property name="icon">
+                <iconset>
+                 <normaloff>../../Users/GoodGame/Downloads/refresh-svgrepo-com.svg</normaloff>../../Users/GoodGame/Downloads/refresh-svgrepo-com.svg</iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>35</width>
+                 <height>35</height>
+                </size>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="bt_eliminar">
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>40</height>
+                </size>
+               </property>
+               <property name="text">
+                <string>ELIMINAR</string>
+               </property>
+               <property name="icon">
+                <iconset>
+                 <normaloff>../../Users/GoodGame/Downloads/delete-svgrepo-com.svg</normaloff>../../Users/GoodGame/Downloads/delete-svgrepo-com.svg</iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>35</width>
+                 <height>35</height>
+                </size>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="bt_ajustes">
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>40</height>
+                </size>
+               </property>
+               <property name="text">
+                <string>AJUSTES</string>
+               </property>
+               <property name="icon">
+                <iconset>
+                 <normaloff>../../Users/GoodGame/Downloads/settings-svgrepo-com.svg</normaloff>../../Users/GoodGame/Downloads/settings-svgrepo-com.svg</iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>35</width>
+                 <height>35</height>
+                </size>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QFrame" name="frame_paginas">
+            <property name="styleSheet">
+             <string notr="true">QFrame{
+background-color:rgb(61,61,61);
+}
+
+QLabel{
+font: 87 12pt &quot;Arial Black&quot;;
+background-color: #000000ff;
+color:rgb(0,206,151);
+border:0px solid #14C8DC;
+}
+
+QLineEdit{
+border:0px;
+color:rgb(255,255,255);
+border-bottom:2px solid rgb(61,61,61);
+font: 75 12pt &quot;Times New Roman&quot;;
+}
+
+QPushButton{
+background-color:rgb(61,61,61);
+border-radius: 15px;
+color: rgb(255,255,255);
+font: 77 10pt &quot;Arial Black&quot;;
+}
+
+QPushButton:hover{
+background-color: rgb(0,206,151);
+border-radius: 15px;
+color: rgb(0,0,0);
+font: 77 10pt &quot;Arial Black&quot;;
+}
+
+QTableWidget{
+background-color: rgb (255,255,255);
+color: rgb(0,0,0);
+gridline-color: rgb(0,206,151);
+font-size: 12pt;
+color: #000000;
+}
+
+QHeaderView::section{
+background-color: (0,206,151);
+border: 1px solid rgb(0,0,0);
+font-size: 12pt;
+}
+
+QTableWidget QTableCornerButton::section{
+background-color: rgb(0,0,0);
+border: 1px solid rgb(0,206,151);
+}</string>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_4">
+             <property name="spacing">
+              <number>0</number>
+             </property>
+             <property name="leftMargin">
+              <number>1</number>
+             </property>
+             <property name="topMargin">
+              <number>1</number>
+             </property>
+             <property name="rightMargin">
+              <number>1</number>
+             </property>
+             <property name="bottomMargin">
+              <number>1</number>
+             </property>
+             <item>
+              <widget class="QStackedWidget" name="stackedWidget">
+               <property name="styleSheet">
+                <string notr="true">background-color: rgb(0, 0, 0);</string>
+               </property>
+               <widget class="QWidget" name="page_Stock">
+                <layout class="QVBoxLayout" name="verticalLayout_5">
+                 <item>
+                  <widget class="QLabel" name="label">
+                   <property name="styleSheet">
+                    <string notr="true">color: rgb(209,69,88);</string>
+                   </property>
+                   <property name="text">
+                    <string>VEHÍCULOS</string>
+                   </property>
+                   <property name="alignment">
+                    <set>Qt::AlignCenter</set>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QTableWidget" name="table_Cars">
+                   <property name="styleSheet">
+                    <string notr="true">color: black</string>
+                   </property>
+                   <column>
+                    <property name="text">
+                     <string>MARCA</string>
+                    </property>
+                   </column>
+                   <column>
+                    <property name="text">
+                     <string>MODELO</string>
+                    </property>
+                   </column>
+                   <column>
+                    <property name="text">
+                     <string>DOMINIO</string>
+                    </property>
+                   </column>
+                   <column>
+                    <property name="text">
+                     <string>AÑO</string>
+                    </property>
+                   </column>
+                   <column>
+                    <property name="text">
+                     <string>KILOMETROS</string>
+                    </property>
+                   </column>
+                   <column>
+                    <property name="text">
+                     <string>COLOR</string>
+                    </property>
+                   </column>
+                   <column>
+                    <property name="text">
+                     <string>PRECIO</string>
+                    </property>
+                   </column>
+                  </widget>
+                 </item>
+                 <item>
+                  <layout class="QHBoxLayout" name="horizontalLayout_3">
+                   <item>
+                    <spacer name="horizontalSpacer_2">
+                     <property name="orientation">
+                      <enum>Qt::Horizontal</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>40</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                   <item>
+                    <widget class="QPushButton" name="button_refresh">
+                     <property name="minimumSize">
+                      <size>
+                       <width>120</width>
+                       <height>30</height>
+                      </size>
+                     </property>
+                     <property name="styleSheet">
+                      <string notr="true">QFrame{
+	background-color: rgb(209, 8, 88);
+}
+
+QPushButton{
+background-color: rgb(209,69,88);
+border-top-left-radius:20px;
+border-bottom-left-radius:20px;
+color:rgb(255,255,255);
+font:77 10pt &quot;Arial Black&quot;;
+}
+
+QPushButton:hover{
+background-color: white;
+border-top-left-radius:20px;
+border-bottom-left-radius:20px;
+color:rgb(0,0,0);
+font: 77 10pt &quot;Arial Black&quot;;
+}</string>
+                     </property>
+                     <property name="text">
+                      <string>REFRESCAR</string>
+                     </property>
+                     <property name="icon">
+                      <iconset>
+                       <normaloff>../../Users/GoodGame/Downloads/refresh-svgrepo-com.svg</normaloff>../../Users/GoodGame/Downloads/refresh-svgrepo-com.svg</iconset>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </item>
+                </layout>
+               </widget>
+               <widget class="QWidget" name="page_Agregar">
+                <layout class="QVBoxLayout" name="verticalLayout">
+                 <item>
+                  <layout class="QHBoxLayout" name="horizontalLayout_4">
+                   <item>
+                    <layout class="QVBoxLayout" name="verticalLayout_6">
+                     <item>
+                      <widget class="QLabel" name="label_2">
+                       <property name="styleSheet">
+                        <string notr="true">color: rgb(209,69,88);</string>
+                       </property>
+                       <property name="text">
+                        <string>MARCA</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QLabel" name="label_3">
+                       <property name="styleSheet">
+                        <string notr="true">color: rgb(209,69,88);</string>
+                       </property>
+                       <property name="text">
+                        <string>MODELO</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QLabel" name="label_4">
+                       <property name="styleSheet">
+                        <string notr="true">color: rgb(209,69,88);</string>
+                       </property>
+                       <property name="text">
+                        <string>DOMINIO</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QLabel" name="label_5">
+                       <property name="styleSheet">
+                        <string notr="true">color: rgb(209,69,88);</string>
+                       </property>
+                       <property name="text">
+                        <string>AÑO</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QLabel" name="label_6">
+                       <property name="styleSheet">
+                        <string notr="true">color: rgb(209,69,88);</string>
+                       </property>
+                       <property name="text">
+                        <string>KM</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QLabel" name="label_7">
+                       <property name="styleSheet">
+                        <string notr="true">color: rgb(209,69,88);</string>
+                       </property>
+                       <property name="text">
+                        <string>COLOR</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QLabel" name="label_8">
+                       <property name="styleSheet">
+                        <string notr="true">color: rgb(209,69,88);</string>
+                       </property>
+                       <property name="text">
+                        <string>PRECIO</string>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </item>
+                   <item>
+                    <layout class="QVBoxLayout" name="verticalLayout_7">
+                     <item>
+                      <widget class="QLineEdit" name="registrar_marca"/>
+                     </item>
+                     <item>
+                      <widget class="QLineEdit" name="registrar_modelo"/>
+                     </item>
+                     <item>
+                      <widget class="QLineEdit" name="registrar_dominio"/>
+                     </item>
+                     <item>
+                      <widget class="QLineEdit" name="registrar_year"/>
+                     </item>
+                     <item>
+                      <widget class="QLineEdit" name="registrar_km"/>
+                     </item>
+                     <item>
+                      <widget class="QLineEdit" name="registrar_color"/>
+                     </item>
+                     <item>
+                      <widget class="QLineEdit" name="registrar_precio"/>
+                     </item>
+                    </layout>
+                   </item>
+                   <item>
+                    <spacer name="horizontalSpacer_4">
+                     <property name="orientation">
+                      <enum>Qt::Horizontal</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>37</width>
+                       <height>196</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                  </layout>
+                 </item>
+                 <item>
+                  <layout class="QHBoxLayout" name="horizontalLayout_5">
+                   <item>
+                    <widget class="QLabel" name="signal_agregar">
+                     <property name="minimumSize">
+                      <size>
+                       <width>180</width>
+                       <height>0</height>
+                      </size>
+                     </property>
+                     <property name="text">
+                      <string/>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <spacer name="horizontalSpacer_3">
+                     <property name="orientation">
+                      <enum>Qt::Horizontal</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>40</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                   <item>
+                    <widget class="QPushButton" name="bt_refrescar">
+                     <property name="styleSheet">
+                      <string notr="true">QFrame{
+	background-color: rgb(209, 8, 88);
+}
+
+QPushButton{
+background-color: rgb(209,69,88);
+border-top-left-radius:20px;
+border-bottom-left-radius:20px;
+color:rgb(255,255,255);
+font:77 10pt &quot;Arial Black&quot;;
+}
+
+QPushButton:hover{
+background-color: white;
+border-top-left-radius:20px;
+border-bottom-left-radius:20px;
+color:rgb(0,0,0);
+font: 77 10pt &quot;Arial Black&quot;;
+}</string>
+                     </property>
+                     <property name="text">
+                      <string>REFRESCAR</string>
+                     </property>
+                     <property name="icon">
+                      <iconset>
+                       <normaloff>../../Users/GoodGame/Downloads/refresh-svgrepo-com.svg</normaloff>../../Users/GoodGame/Downloads/refresh-svgrepo-com.svg</iconset>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </item>
+                </layout>
+               </widget>
+               <widget class="QWidget" name="page_Actualizar">
+                <widget class="QLineEdit" name="act_buscar">
+                 <property name="geometry">
+                  <rect>
+                   <x>12</x>
+                   <y>20</y>
+                   <width>251</width>
+                   <height>21</height>
+                  </rect>
+                 </property>
+                </widget>
+                <widget class="QPushButton" name="bt_actualizar_tabla">
+                 <property name="geometry">
+                  <rect>
+                   <x>260</x>
+                   <y>360</y>
+                   <width>121</width>
+                   <height>21</height>
+                  </rect>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">QFrame{
+	background-color: rgb(209, 8, 88);
+}
+
+QPushButton{
+background-color: rgb(209,69,88);
+border-top-left-radius:20px;
+border-bottom-left-radius:20px;
+color:rgb(255,255,255);
+font:77 10pt &quot;Arial Black&quot;;
+}
+
+QPushButton:hover{
+background-color: white;
+border-top-left-radius:20px;
+border-bottom-left-radius:20px;
+color:rgb(0,0,0);
+font: 77 10pt &quot;Arial Black&quot;;
+}</string>
+                 </property>
+                 <property name="text">
+                  <string>ACTUALIZAR </string>
+                 </property>
+                 <property name="icon">
+                  <iconset>
+                   <normaloff>../../Users/GoodGame/Downloads/refresh-svgrepo-com.svg</normaloff>../../Users/GoodGame/Downloads/refresh-svgrepo-com.svg</iconset>
+                 </property>
+                </widget>
+                <widget class="QPushButton" name="bt_buscar_act">
+                 <property name="geometry">
+                  <rect>
+                   <x>290</x>
+                   <y>20</y>
+                   <width>75</width>
+                   <height>23</height>
+                  </rect>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">QFrame{
+	background-color: rgb(209, 8, 88);
+}
+
+QPushButton{
+background-color: rgb(209,69,88);
+border-top-left-radius:20px;
+border-bottom-left-radius:20px;
+color:rgb(255,255,255);
+font:77 10pt &quot;Arial Black&quot;;
+}
+
+QPushButton:hover{
+background-color: white;
+border-top-left-radius:20px;
+border-bottom-left-radius:20px;
+color:rgb(0,0,0);
+font: 77 10pt &quot;Arial Black&quot;;
+}</string>
+                 </property>
+                 <property name="text">
+                  <string>BUSCAR</string>
+                 </property>
+                </widget>
+                <widget class="QLabel" name="signal_actualizar">
+                 <property name="geometry">
+                  <rect>
+                   <x>10</x>
+                   <y>360</y>
+                   <width>111</width>
+                   <height>21</height>
+                  </rect>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+                <widget class="QWidget" name="">
+                 <property name="geometry">
+                  <rect>
+                   <x>150</x>
+                   <y>70</y>
+                   <width>125</width>
+                   <height>271</height>
+                  </rect>
+                 </property>
+                 <layout class="QVBoxLayout" name="verticalLayout_9">
+                  <item>
+                   <widget class="QLineEdit" name="act_marca"/>
+                  </item>
+                  <item>
+                   <widget class="QLineEdit" name="act_modelo"/>
+                  </item>
+                  <item>
+                   <widget class="QLineEdit" name="act_dominio"/>
+                  </item>
+                  <item>
+                   <widget class="QLineEdit" name="act_year"/>
+                  </item>
+                  <item>
+                   <widget class="QLineEdit" name="act_km"/>
+                  </item>
+                  <item>
+                   <widget class="QLineEdit" name="act_color"/>
+                  </item>
+                  <item>
+                   <widget class="QLineEdit" name="act_precio"/>
+                  </item>
+                 </layout>
+                </widget>
+                <widget class="QWidget" name="">
+                 <property name="geometry">
+                  <rect>
+                   <x>10</x>
+                   <y>70</y>
+                   <width>121</width>
+                   <height>261</height>
+                  </rect>
+                 </property>
+                 <layout class="QVBoxLayout" name="verticalLayout_8">
+                  <item>
+                   <widget class="QLabel" name="label_10">
+                    <property name="styleSheet">
+                     <string notr="true">color: rgb(209,69,88);</string>
+                    </property>
+                    <property name="text">
+                     <string>MARCA</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="label_11">
+                    <property name="styleSheet">
+                     <string notr="true">color: rgb(209,69,88);</string>
+                    </property>
+                    <property name="text">
+                     <string>MODELO</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="label_12">
+                    <property name="styleSheet">
+                     <string notr="true">color: rgb(209,69,88);</string>
+                    </property>
+                    <property name="text">
+                     <string>DOMINIO</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="label_13">
+                    <property name="styleSheet">
+                     <string notr="true">color: rgb(209,69,88);</string>
+                    </property>
+                    <property name="text">
+                     <string>AÑO</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="label_14">
+                    <property name="styleSheet">
+                     <string notr="true">color: rgb(209,69,88);</string>
+                    </property>
+                    <property name="text">
+                     <string>KM</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="label_15">
+                    <property name="styleSheet">
+                     <string notr="true">color: rgb(209,69,88);</string>
+                    </property>
+                    <property name="text">
+                     <string>COLOR</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="label_16">
+                    <property name="styleSheet">
+                     <string notr="true">color: rgb(209,69,88);</string>
+                    </property>
+                    <property name="text">
+                     <string>PRECIO</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </widget>
+               <widget class="QWidget" name="page_Eliminar">
+                <widget class="QLabel" name="label_17">
+                 <property name="geometry">
+                  <rect>
+                   <x>10</x>
+                   <y>30</y>
+                   <width>101</width>
+                   <height>16</height>
+                  </rect>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">color: rgb(209,69,88);</string>
+                 </property>
+                 <property name="text">
+                  <string>NOMBRE:</string>
+                 </property>
+                </widget>
+                <widget class="QLineEdit" name="eliminar_buscar">
+                 <property name="geometry">
+                  <rect>
+                   <x>120</x>
+                   <y>30</y>
+                   <width>181</width>
+                   <height>20</height>
+                  </rect>
+                 </property>
+                </widget>
+                <widget class="QPushButton" name="bt_buscar_borrar">
+                 <property name="geometry">
+                  <rect>
+                   <x>310</x>
+                   <y>30</y>
+                   <width>75</width>
+                   <height>23</height>
+                  </rect>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">QFrame{
+	background-color: rgb(209, 8, 88);
+}
+
+QPushButton{
+background-color: rgb(209,69,88);
+border-top-left-radius:20px;
+border-bottom-left-radius:20px;
+color:rgb(255,255,255);
+font:77 10pt &quot;Arial Black&quot;;
+}
+
+QPushButton:hover{
+background-color: white;
+border-top-left-radius:20px;
+border-bottom-left-radius:20px;
+color:rgb(0,0,0);
+font: 77 10pt &quot;Arial Black&quot;;
+}</string>
+                 </property>
+                 <property name="text">
+                  <string>BUSCAR</string>
+                 </property>
+                </widget>
+                <widget class="QTableWidget" name="tabla_borrar">
+                 <property name="geometry">
+                  <rect>
+                   <x>5</x>
+                   <y>81</y>
+                   <width>381</width>
+                   <height>241</height>
+                  </rect>
+                 </property>
+                 <column>
+                  <property name="text">
+                   <string>MARCA</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>MODELO</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>AÑO</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>DOMINIO</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>KM</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>CONDICION</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>PRECIO</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string/>
+                  </property>
+                 </column>
+                </widget>
+                <widget class="QPushButton" name="bt_borrar">
+                 <property name="geometry">
+                  <rect>
+                   <x>290</x>
+                   <y>350</y>
+                   <width>75</width>
+                   <height>23</height>
+                  </rect>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">QFrame{
+	background-color: rgb(209, 8, 88);
+}
+
+QPushButton{
+background-color: rgb(209,69,88);
+border-top-left-radius:20px;
+border-bottom-left-radius:20px;
+color:rgb(255,255,255);
+font:77 10pt &quot;Arial Black&quot;;
+}
+
+QPushButton:hover{
+background-color: white;
+border-top-left-radius:20px;
+border-bottom-left-radius:20px;
+color:rgb(0,0,0);
+font: 77 10pt &quot;Arial Black&quot;;
+}</string>
+                 </property>
+                 <property name="text">
+                  <string>BORRAR</string>
+                 </property>
+                </widget>
+                <widget class="QLabel" name="signal_eliminacion">
+                 <property name="geometry">
+                  <rect>
+                   <x>10</x>
+                   <y>352</y>
+                   <width>91</width>
+                   <height>21</height>
+                  </rect>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </widget>
+               <widget class="QWidget" name="page_Ajustes"/>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
